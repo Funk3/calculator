@@ -36,10 +36,12 @@ body {
 }
 
 .footer {
+    background-color: mediumorchid;
     display:flex;
     justify-content: center;
     padding: 20px;
     position: fixed;
     bottom: 0;
     width: 100%;
+    gap: 20px;
 }
