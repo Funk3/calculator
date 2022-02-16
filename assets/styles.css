@@ -6,6 +6,33 @@ body {
 
 .main {
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.displaybox {
+    display: flex;
+    
+}
+
+.controls {
+    display: flex;
+   flex-direction: row;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+}
+
+.numbers {
+    display: flex;
+    flex-direction: row wrap;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
 }
 
 .footer {
