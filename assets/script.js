@@ -1,27 +1,32 @@
 const displayMe = document.querySelector(".display");
-
 const button = document.querySelector('button');
 
-const one = document.querySelector('.one');
-const two = document.querySelector('two');
-const three = document.querySelector('three');
-const four = document.querySelector('four');
-const five = document.querySelector('five');
-const six = document.querySelector('six');
-const seven = document.querySelector('seven');
-const eight = document.querySelector('eight');
-const nine = document.querySelector('nine');
-const zero = document.querySelector('zero');
-const equal = document.querySelector('equal');
-const divide = document.querySelector('divide');
-const add = document.querySelector('add');
-const subtract = document.querySelector('subtract');
-const multiply = document.querySelector('multiply');
-const decimal = document.querySelector('decimal');
+const operators = {
+one: document.querySelector('.one'),
+two: document.querySelector('.two'),
+three: document.querySelector('.three'),
+four: document.querySelector('.four'),
+five: document.querySelector('.five'),
+six: document.querySelector('.six'),
+seven: document.querySelector('.seven'),
+eight: document.querySelector('.eight'),
+nine: document.querySelector('.nine'),
+zero: document.querySelector('.zero'),
+equal: document.querySelector('.equal'),
+divide: document.querySelector('.divide'),
+add: document.querySelector('.add'),
+subtract: document.querySelector('.subtract'),
+multiply: document.querySelector('.multiply'),
+decimal: document.querySelector('.decimal'),
+};
 
 displayMe.innerHTML= '0';
 
-function displayThis(e) {
-    e => e.innerHTML = `${e}`;
-}
-one.addEventListener('click', displayMe.innerHTML='1');
+// Takes the parameter of the button clicked 
+// returns the element into the display
+function displayThis(){
+    displayMe.innerHTML=`${this.textContent}`;
+};
+
+console.log((operators.one).addEventListener('click', displayThis));
+(operators.two).addEventListener('click', displayThis);
