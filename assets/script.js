@@ -28,5 +28,5 @@ function displayThis(){
     displayMe.innerHTML=`${this.textContent}`;
 };
 
-console.log((operators.one).addEventListener('click', displayThis));
-(operators.two).addEventListener('click', displayThis);
+
+console.log(operators.Onclick = displayThis());
