@@ -8,6 +8,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+   
 }
 
 .displaybox {
@@ -17,26 +18,24 @@ body {
 
 .controls {
     display: flex;
-   flex-direction: row;
+    flex-flow: row wrap;
+   
 }
 
 .calculator {
     display: flex;
     flex-direction: column;
+    width: 300px;
+    height: 400px;
+   
 }
 
-.numbers {
-    display: flex;
-    flex-direction: row wrap;
-}
-
-.operators {
-    display: flex;
-    flex-direction: column;
+button {
+    padding:20px;
 }
 
 .footer {
-    background-color: mediumorchid;
+    background-color: rgb(187, 166, 192);
     display:flex;
     justify-content: center;
     padding: 20px;
