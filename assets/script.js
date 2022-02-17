@@ -68,8 +68,8 @@ function divide(firstNumber, secondNumber){
     return firstNumber / secondNumber;
 };
 
-function multiply(firstNumber, SecondNumber){
-    return firstNumber * SecondNumber;
+function multiply(firstNumber, secondNumber){
+    return firstNumber * secondNumber;
 };
 //takes operator and 2 numbers and calls arithmetic function on numbers
 function operate(firstNumber, secondNumber){
