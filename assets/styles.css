@@ -22,17 +22,21 @@ button {
     border: solid;
 }
 
-.display {
+.displaybox {
     background-color: grey;
     margin-top: 20px;
     margin-bottom: 20px;
     height: 100px;
     width: 300px;
     display: flex;
+    flex-direction: column;
     border: solid;
     justify-content: flex-end;
     align-items: flex-end;
+}
 
+.upperDisplay {
+    padding-bottom: 30px;
 }
 
 .controls {

@@ -1,6 +1,7 @@
 const displayMe = document.querySelector(".display");
+const showMe = document.querySelector('.upperDisplay');
 
-const operators = {
+const numbers = {
 one: document.querySelector('.one'),
 two: document.querySelector('.two'),
 three: document.querySelector('.three'),
@@ -11,15 +12,18 @@ seven: document.querySelector('.seven'),
 eight: document.querySelector('.eight'),
 nine: document.querySelector('.nine'),
 zero: document.querySelector('.zero'),
-equal: document.querySelector('.equal'),
-divide: document.querySelector('.divide'),
-add: document.querySelector('.add'),
-subtract: document.querySelector('.subtract'),
-multiply: document.querySelector('.multiply'),
-decimal: document.querySelector('.decimal'),
-power: document.querySelector('.power'),
-clear: document.querySelector('.clear'),
 };
+
+const operators = {
+    divide: document.querySelector('.divide'),
+    add: document.querySelector('.add'),
+    subtract: document.querySelector('.subtract'),
+    multiply: document.querySelector('.multiply'),
+   /* decimal: document.querySelector('.decimal'),
+    equal: document.querySelector('.equal'),
+    power: document.querySelector('.power'), */
+    clear: document.querySelector('.clear'),
+}
 
 displayMe.innerHTML= '';
 
@@ -27,26 +31,54 @@ displayMe.innerHTML= '';
 // returns the element into the display
 function displayThis(){
     displayMe.innerHTML=`${this.textContent}`;
+    let holdMe = this;
 };
 
-operators.one.addEventListener('click', displayThis);
-operators.two.addEventListener('click', displayThis);
-operators.three.addEventListener('click', displayThis);
-operators.four.addEventListener('click', displayThis);
-operators.five.addEventListener('click', displayThis);
-operators.six.addEventListener('click', displayThis);
-operators.seven.addEventListener('click', displayThis);
-operators.eight.addEventListener('click', displayThis);
-operators.nine.addEventListener('click', displayThis);
-operators.zero.addEventListener('click', displayThis);
+//takes operator and 2 numbers and calls arithmetic function on numbers
+function operate(){
+
+};
+
+numbers.one.addEventListener('click', displayThis);
+numbers.two.addEventListener('click', displayThis);
+numbers.three.addEventListener('click', displayThis);
+numbers.four.addEventListener('click', displayThis);
+numbers.five.addEventListener('click', displayThis);
+numbers.six.addEventListener('click', displayThis);
+numbers.seven.addEventListener('click', displayThis);
+numbers.eight.addEventListener('click', displayThis);
+numbers.nine.addEventListener('click', displayThis);
+numbers.zero.addEventListener('click', displayThis);
+
+operators.add.addEventListener('click', add);
+
+
 
 operators.clear.addEventListener('click', clear => displayMe.innerHTML='0');
 
-//fix so turns display off on second click
-operators.power.addEventListener('click', power => {
+
+/*operators.power.addEventListener('click', power => {
     if(displayMe !== '') {
         displayMe.innerHTML='0';
     } else {
         displayMe.innerHTML='';
     }
-});
+}); */
+
+
+function add(firstNumber, secondNumber){
+    return firstNumber + secondNumber;
+};
+
+function subtract(firstNumber, secondNumber){
+    return firstNumber - secondNumber;
+};
+
+function divide(firstNumber, secondNumber){
+    return firstNumber / secondNumber;
+};
+
+function multiply(firstNumber, SecondNumber){
+    return firstNumber * SecondNumber;
+};
+
