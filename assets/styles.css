@@ -1,7 +1,8 @@
 body {
-    background-color:rgb(149, 138, 172);
+    font-family: 'sans-serif' 'roboto';
     display: flex;
     flex-direction: column;
+    background-color:rgb(149, 138, 172);
 }
 
 button {
@@ -62,10 +63,17 @@ button {
 .footer {
     background-color: rgb(187, 166, 192);
     display:flex;
+    flex-flow: row nowrap;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
     position: fixed;
     bottom: 0;
     width: 100%;
-    gap: 20px;
+    gap: 30px;
 }
+
+.website {
+    display:flex;
+    align-self: center;
+}
+
