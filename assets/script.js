@@ -47,11 +47,12 @@ const operatorFunctions = {
     multiply:   multiply => operatorArray[0] * operatorArray[1],
 };
 
+//operator event must hold function in a variable
 const operatorEvent = {
-    add:        operators.add.addEventListener('click', operatorFunctions.add),
-    subtract:   operators.subtract.addEventListener('click', operatorFunctions.subtract),
-    multiply:   operators.multiply.addEventListener('click', operatorFunctions.multiply),
-    divide:     operators.divide.addEventListener('click', operatorFunctions.divide),
+    add:        operators.add.addEventListener('click', operator),
+    subtract:   operators.subtract.addEventListener('click', operator),
+    multiply:   operators.multiply.addEventListener('click', operator),
+    divide:     operators.divide.addEventListener('click', operator),
     equal:      operators.equal.addEventListener('click', equals),
     clear:      operators.clear.addEventListener('click',  
                     function clear(){
@@ -62,28 +63,21 @@ const operatorEvent = {
 
 function displayThis(){
     displayMe.innerHTML=`${this.textContent}`;
-    operatorArray.push(this);
+    let number = parseInt(this.textContent);
+    operatorArray.push(number); 
 };
 
+
+//equals takes operator function and runs it with the second number.
 function equals() {
-    displayMe.innerHTML= answer[0];
+if (operatorEvent.add == true) {
+    let number = operatorFunctions.add;
+    answer.push(number);
+    displayMe.InnerHTML=`${this.textContent}`;
+    };
 };
 
-function operator() {
- if (operatorArray[1] !== null) {
-     let equal = operatorEvent.key;
- } 
- answer.push(equal);
-};
 
-console.log(answer);
 
-//takes operator and 2 numbers and calls arithmetic function on numbers
 
-//take first button click and hold as variable
-//take second button click and hold as variable
-// add operator to it
-// if second number isn't inputtted, hold operator until second number is inputted
-// if second number exists, push answer to
-// hold answer in variable
-// use equal to display answer variable.
+
