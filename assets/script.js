@@ -1,5 +1,6 @@
 const displayMe = document.querySelector(".display");
 const showMe =    document.querySelector('.upperDisplay');
+let mathFunction = '';
 let operatorArray = [];
 let answer = [];
 
@@ -45,19 +46,39 @@ const operatorFunctions = {
     subtract:   subtract => operatorArray[0] - operatorArray[1],
     divide:     divide => operatorArray[0] / operatorArray[1],
     multiply:   multiply => operatorArray[0] * operatorArray[1],
+    };
+
+function add(){
+    if (mathFunction == ''){
+    mathFunction = 'add';
+    } else if (mathFunction !== ''){
+        
+    }
 };
 
-//operator event must hold function in a variable
+function subtract(){
+     mathFunction = 'subtract';
+};
+
+function multiply(){
+    mathFunction = 'multiply';
+};
+
+function divide(){
+    mathFunction = 'divide';
+};
+
 const operatorEvent = {
-    add:        operators.add.addEventListener('click', operator),
-    subtract:   operators.subtract.addEventListener('click', operator),
-    multiply:   operators.multiply.addEventListener('click', operator),
-    divide:     operators.divide.addEventListener('click', operator),
+    add:        operators.add.addEventListener('click', add),
+    subtract:   operators.subtract.addEventListener('click', subtract),
+    multiply:   operators.multiply.addEventListener('click', multiply),
+    divide:     operators.divide.addEventListener('click', divide),
     equal:      operators.equal.addEventListener('click', equals),
     clear:      operators.clear.addEventListener('click',  
                     function clear(){
                         displayMe.innerHTML='0';
                         operatorArray.length = 0;
+                        answer.length = 0;
                     }),
 };
 
@@ -67,16 +88,34 @@ function displayThis(){
     operatorArray.push(number); 
 };
 
-
-//equals takes operator function and runs it with the second number.
 function equals() {
-if (operatorEvent.add == true) {
-    let number = operatorFunctions.add;
-    answer.push(number);
-    displayMe.InnerHTML=`${this.textContent}`;
-    };
-};
 
+if (mathFunction == 'add') {
+    answer.push(operatorFunctions.add(operatorArray[0], operatorArray[1]));
+    displayMe.innerHTML=`${answer[0]}`;
+    } 
+
+else if (mathFunction == 'subtract') {
+    answer.push(operatorFunctions.subtract(operatorArray[0], operatorArray[1]));
+    displayMe.innerHTML=`${answer[0]}`;
+    }
+
+else if (mathFunction == 'multiply') {
+    answer.push(operatorFunctions.multiply(operatorArray[0], operatorArray[1]));
+    displayMe.innerHTML=`${answer[0]}`;
+    } 
+
+else if (mathFunction == 'divide') {
+    answer.push(operatorFunctions.divide(operatorArray[0], operatorArray[1]));
+    displayMe.innerHTML=`${answer[0]}`;
+    }
+
+else if (operatorArray[0] == 0 && operatorArray[1] == 0) {
+    displayMe.InnerHTML="Why?";
+    operatorArray.length = 0;
+    answer.length = 0;
+    }
+};
 
 
 
