@@ -57,15 +57,27 @@ function add(){
 };
 
 function subtract(){
-     mathFunction = 'subtract';
+    if (mathFunction == ''){
+    mathFunction = 'subtract';
+    } else if (mathFunction !== ''){
+        
+    }
 };
 
 function multiply(){
+    if (mathFunction == ''){
     mathFunction = 'multiply';
+    } else if (mathFunction !== ''){
+       
+    }
 };
 
 function divide(){
+    if (mathFunction == ''){
     mathFunction = 'divide';
+    } else if (mathFunction !== ''){
+       
+    }
 };
 
 const operatorEvent = {
@@ -79,6 +91,7 @@ const operatorEvent = {
                         displayMe.innerHTML='0';
                         operatorArray.length = 0;
                         answer.length = 0;
+                        mathFunction = '';
                     }),
 };
 
