@@ -53,19 +53,19 @@ const operatorFunctions = {
 //you click another number and it adds to display
 // is pushed to array when operator is clicked
 function displayThis(){
-    if (displayMe.innerHTML == '' && mathFunction == ''){
-        displayMe.innerHTML=`${this.textContent}`;
-     } else {
-        displayMe.textContent += this.textContent;
-     }  
-        let number = parseInt(this.textContent);
-        operatorArray.push(number);
-         
+        if (displayMe.innerHTML == '') {
+            displayMe.innerHTML=`${+this.textContent}`;
+        } else if (displayMe.innerHTML !== '') {
+            displayMe.innerHTML += +this.textContent;
+        } 
 };
 
 function add(){
     if (mathFunction == ''){
     mathFunction = 'add';
+    let number = parseInt(+displayMe.textContent);
+    operatorArray.push(+displayMe.textContent);
+    displayMe.innerHTML = '';
     } else if (mathFunction !== ''){
         equals();
     }
@@ -74,24 +74,33 @@ function add(){
 function subtract(){
     if (mathFunction == ''){
     mathFunction = 'subtract';
+    let number = parseInt(+displayMe.textContent);
+    operatorArray.push(+displayMe.textContent);
+    displayMe.innerHTML = '';
     } else if (mathFunction !== ''){
-        
+        equals();
     }
 };
 
 function multiply(){
     if (mathFunction == ''){
     mathFunction = 'multiply';
+    let number = parseInt(+displayMe.textContent);
+    operatorArray.push(+displayMe.textContent);
+    displayMe.innerHTML = '';
     } else if (mathFunction !== ''){
-       
+        equals();
     }
 };
 
 function divide(){
     if (mathFunction == ''){
     mathFunction = 'divide';
+    let number = parseInt(+displayMe.textContent);
+    operatorArray.push(+displayMe.textContent);
+    displayMe.innerHTML = '';
     } else if (mathFunction !== ''){
-       
+        equals();
     }
 };
 
@@ -103,7 +112,7 @@ const operatorEvent = {
     equal:      operators.equal.addEventListener('click', equals),
     clear:      operators.clear.addEventListener('click',  
                     function clear(){
-                        displayMe.innerHTML='0';
+                        displayMe.innerHTML='';
                         operatorArray.length = 0;
                         answer.length = 0;
                         mathFunction = '';
@@ -111,12 +120,16 @@ const operatorEvent = {
 };
 
 function equals() {
+    let number = parseInt(+displayMe.textContent);
+    
     if (mathFunction == 'add') {
         if (answer.length !== 0) {
             operatorArray.splice(0,2);
             operatorArray.push(answer[0]);
             answer = [];
+            displayMe.innerHTML = '';
         } else {
+    operatorArray.push(+displayMe.textContent);
     answer.push(operatorFunctions.add(operatorArray[0], operatorArray[1]));
     displayMe.innerHTML=`${answer[0]}`
     }
@@ -127,7 +140,9 @@ function equals() {
             operatorArray.splice(0,2);
             operatorArray.push(answer[0]);
             answer = [];
+            displayMe.innerHTML = '';
         } else {
+    operatorArray.push(+displayMe.textContent);
     answer.push(operatorFunctions.subtract(operatorArray[0], operatorArray[1]));
     displayMe.innerHTML=`${answer[0]}`;
     }
@@ -138,7 +153,9 @@ function equals() {
             operatorArray.splice(0,2);
             operatorArray.push(answer[0]);
             answer = [];
+            displayMe.innerHTML = '';
         } else {
+    operatorArray.push(+displayMe.textContent);
     answer.push(operatorFunctions.multiply(operatorArray[0], operatorArray[1]));
     displayMe.innerHTML=`${answer[0]}`;
     } 
@@ -149,7 +166,9 @@ function equals() {
             operatorArray.splice(0,2);
             operatorArray.push(answer[0]);
             answer = [];
+            displayMe.innerHTML = '';
         } else {
+    operatorArray.push(+displayMe.textContent);
     answer.push(operatorFunctions.divide(operatorArray[0], operatorArray[1]));
     displayMe.innerHTML=`${answer[0]}`;
     }
