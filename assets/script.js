@@ -48,11 +48,26 @@ const operatorFunctions = {
     multiply:   multiply => operatorArray[0] * operatorArray[1],
     };
 
+// appends number to add to array
+//you click on number and it displays
+//you click another number and it adds to display
+// is pushed to array when operator is clicked
+function displayThis(){
+    if (displayMe.innerHTML == '' && mathFunction == ''){
+        displayMe.innerHTML=`${this.textContent}`;
+     } else {
+        displayMe.textContent += this.textContent;
+     }  
+        let number = parseInt(this.textContent);
+        operatorArray.push(number);
+         
+};
+
 function add(){
     if (mathFunction == ''){
     mathFunction = 'add';
     } else if (mathFunction !== ''){
-        
+        equals();
     }
 };
 
@@ -95,39 +110,51 @@ const operatorEvent = {
                     }),
 };
 
-function displayThis(){
-    displayMe.innerHTML=`${this.textContent}`;
-    let number = parseInt(this.textContent);
-    operatorArray.push(number); 
-};
-
 function equals() {
-
-if (mathFunction == 'add') {
+    if (mathFunction == 'add') {
+        if (answer.length !== 0) {
+            operatorArray.splice(0,2);
+            operatorArray.push(answer[0]);
+            answer = [];
+        } else {
     answer.push(operatorFunctions.add(operatorArray[0], operatorArray[1]));
-    displayMe.innerHTML=`${answer[0]}`;
-    } 
+    displayMe.innerHTML=`${answer[0]}`
+    }
+}
 
-else if (mathFunction == 'subtract') {
+    else if (mathFunction == 'subtract') {
+        if (answer.length !== 0) {
+            operatorArray.splice(0,2);
+            operatorArray.push(answer[0]);
+            answer = [];
+        } else {
     answer.push(operatorFunctions.subtract(operatorArray[0], operatorArray[1]));
     displayMe.innerHTML=`${answer[0]}`;
     }
+}
 
-else if (mathFunction == 'multiply') {
+    else if (mathFunction == 'multiply') {
+        if (answer.length !== 0) {
+            operatorArray.splice(0,2);
+            operatorArray.push(answer[0]);
+            answer = [];
+        } else {
     answer.push(operatorFunctions.multiply(operatorArray[0], operatorArray[1]));
     displayMe.innerHTML=`${answer[0]}`;
     } 
+}
 
-else if (mathFunction == 'divide') {
+    else if (mathFunction == 'divide') {
+        if (answer.length !== 0) {
+            operatorArray.splice(0,2);
+            operatorArray.push(answer[0]);
+            answer = [];
+        } else {
     answer.push(operatorFunctions.divide(operatorArray[0], operatorArray[1]));
     displayMe.innerHTML=`${answer[0]}`;
     }
+}
 
-else if (operatorArray[0] == 0 && operatorArray[1] == 0) {
-    displayMe.InnerHTML="Why?";
-    operatorArray.length = 0;
-    answer.length = 0;
-    }
 };
 
 
