@@ -1,12 +1,15 @@
 body {
-    font-family: 'sans-serif' 'roboto';
+    height: 100vh;
+    width: 100vw;
+    font-family: 'sans' 'roboto';
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color:rgb(149, 138, 172);
 }
 
 button {
-    padding:20px;
+    border-radius: 8px;
 }
 
 .main {
@@ -15,15 +18,20 @@ button {
     justify-content: center;
    
 }.calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-areas: 
+    "display"
+    "controls"
+    "controls";
+    justify-content: center;
     width: 350px;
     height: 500px;
     border: solid;
+    border-radius: 12px;
 }
 
 .displaybox {
+    grid-area: display;
     background-color: grey;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -32,6 +40,7 @@ button {
     display: flex;
     flex-direction: column;
     border: solid;
+    border-radius: 20px;
     justify-content: flex-end;
     align-items: flex-end;
 }
@@ -41,22 +50,23 @@ button {
 }
 
 .controls {
-    display: flex;
-    flex-flow: row nowrap;
-    border: solid;
-    margin: 0 20px 20px 20px;
+    grid-area: controls;
+    display: grid;
+    grid-template-areas: 
+    "number number number operator"
+    "number number number operator"
+    "number number number operator"
+    "number number number operator";
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(4, 25%);
 }
 
 .operators {
-    display: flex;
-    flex-direction: column;
-    border: solid;
+    grid-area: operator;   
 }
 
 .numbers {
-    display: flex;
-    flex-wrap: wrap;
-    border: solid;
+    grid-area: number;
 }
 
 
