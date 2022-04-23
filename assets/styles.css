@@ -61,14 +61,18 @@ button {
     grid-template-rows: repeat(4, 25%);
 }
 
-.operators {
-    grid-area: operator;   
-}
-
 .numbers {
     grid-area: number;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(4, 25%);
 }
 
+.operators {
+    grid-area: operator;
+    display: grid;
+    grid-template-rows: repeat(4, 25%);   
+}
 
 .footer {
     background-color: rgb(187, 166, 192);
